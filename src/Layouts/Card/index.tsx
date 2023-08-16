@@ -1,21 +1,34 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+/* eslint-disable prettier/prettier */
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 const index = props => {
-  const {img, category, name, width, height, children} = props;
+  const {width, height, children} = props;
   return (
     <View style={[styles.card, {width: width * 0.45, height: height * 0.3}]}>
-      <View style={styles.header}>
-        <Image source={{uri: img}} style={styles.image} />
-      </View>
-      <View style={styles.body}>
-        <Text style={styles.textKategori}>{category}</Text>
-        <Text style={styles.textProduk}>{name}</Text>
-      </View>
-      <View style={styles.footer}>{children}</View>
+      {children}
     </View>
   );
 };
+
+const Header = props => {
+  const {children} = props;
+  return <View style={styles.header}>{children}</View>;
+};
+
+const Body = props => {
+  const {children} = props;
+  return <View style={styles.body}>{children}</View>;
+};
+
+const Footer = props => {
+  const {children} = props;
+  return <View style={styles.footer}>{children}</View>;
+};
+
+index.Header = Header;
+index.Body = Body;
+index.Footer = Footer;
 
 export default index;
 

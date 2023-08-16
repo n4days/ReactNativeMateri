@@ -1,48 +1,20 @@
-import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Tombol} from './Components';
-import {produk} from './Constants';
-import {Card, CardKosong} from './Layouts';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Product, Category, List} from './pages';
 
-const WIDTH = Dimensions.get('window').width;
-const HEIGHT = Dimensions.get('window').height;
+const Stack = createNativeStackNavigator();
+
 const App = () => {
   return (
-    <ScrollView>
-      <View style={styles.container_fluid}>
-        {produk.length > 0 &&
-          produk.map(item => (
-            <Card
-              key={item.id}
-              img={item.img}
-              category={item.category}
-              name={item.name}
-              width={WIDTH}
-              height={HEIGHT}>
-              <Tombol title="Add to Card" color={item.color} />
-            </Card>
-          ))}
-        {produk.length % 2 !== 0 && (
-          <CardKosong width={WIDTH} height={HEIGHT}></CardKosong>
-        )}
-      </View>
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="List">
+        <Stack.Screen name="Product" component={Product} />
+        <Stack.Screen name="Category" component={Category} />
+        <Stack.Screen name="List" component={List} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
-// CSS
-const styles = StyleSheet.create({
-  input: {
-    borderWidth: 1,
-  },
-  container_fluid: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
-});
