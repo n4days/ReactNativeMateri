@@ -1,4 +1,4 @@
-import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, RefreshControl} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {listProduct} from '../../Services/product.service';
 import {CardBody} from '../../Layouts';
@@ -13,10 +13,19 @@ import {
 
 const ProductAPI = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getProducts();
   }, []);
+
+  const handleRefresh = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      getProducts();
+      setIsLoading(false);
+    }, 1000);
+  };
 
   const getProducts = () => {
     listProduct(handleData);
@@ -56,6 +65,9 @@ const ProductAPI = () => {
         renderItem={ItemBody}
         numColumns={2}
         style={{backgroundColor: '#fff'}}
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={handleRefresh} />
+        }
       />
     );
   };

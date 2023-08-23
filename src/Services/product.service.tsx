@@ -1,7 +1,8 @@
 import axios from 'axios';
+import {stringConst} from '../Constants';
 export const listProduct = async callback => {
   await axios
-    .get('http://192.168.1.23/backend-kasir/public/produk')
+    .get(`${stringConst.stringUrlAPI}produk`)
     .then(response => {
       callback(response.data);
     })

@@ -6,3 +6,4 @@ export * from './kuponFlashSale';
 export * from './produkFlashSale';
 export * from './mallFlashSale';
 export * from './eventFlashSale';
+export * from './globalconfig';
