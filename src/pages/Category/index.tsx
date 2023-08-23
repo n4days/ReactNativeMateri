@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Tombol, Tulisan} from '../../Components';
+import {color} from '../../Constants';
 
 const Category = ({navigation}) => {
   let nama = 'ke Jakarta';
@@ -21,6 +22,12 @@ const Category = ({navigation}) => {
       <Tombol
         title={'Navigate to Product'}
         onPress={() => navigation.navigate('Product')}
+      />
+      <Tulisan></Tulisan>
+      <Tombol
+        color={'red'}
+        title={'Flash Sale'}
+        onPress={() => navigation.navigate('FlashSale')}
       />
       <Tulisan></Tulisan>
       <Tombol
