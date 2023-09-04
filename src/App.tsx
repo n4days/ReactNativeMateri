@@ -1,14 +1,19 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Product, Category, List, FlashSale, Icon, Tabs} from './pages';
+import {Product, Category, List, Tabs, SplashScreen} from './pages';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Tabs">
+      <Stack.Navigator initialRouteName="SplashScreen">
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Product" component={Product} />
         <Stack.Screen name="Category" component={Category} />
         <Stack.Screen name="List" component={List} />

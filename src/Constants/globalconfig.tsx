@@ -1,4 +1,4 @@
 const stringConst = {
-  stringUrlAPI: 'http://192.168.1.23/backend-kasir/public/',
+  stringUrlAPI: 'http://kasirles.000webhostapp.com/public/',
 };
 export {stringConst};

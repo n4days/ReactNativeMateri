@@ -1,5 +1,6 @@
 import {Image, StyleSheet, View} from 'react-native';
 import React from 'react';
+import {stringConst} from '../../Constants';
 
 const index = props => {
   const {slugKategori, gambarProduk} = props;
@@ -13,7 +14,8 @@ const index = props => {
       }}
       source={{
         uri:
-          'http://192.168.1.23/backend-kasir/public/assets/images/' +
+          stringConst.stringUrlAPI +
+          'assets/images/' +
           slugKategori +
           '/' +
           gambarProduk,

@@ -6,7 +6,9 @@ import Icon from './Icon';
 import Tabs from './Tabs';
 import ProductAPI from './ProductAPI';
 import Report from './Report';
-import Setting from './Setting';
+import AddProduk from './AddProduk';
+import ReportDif from './ReportDif';
+import SplashScreen from './SplashScreen';
 
 export {
   Product,
@@ -17,5 +19,7 @@ export {
   Tabs,
   ProductAPI,
   Report,
-  Setting,
+  AddProduk,
+  ReportDif,
+  SplashScreen,
 };
